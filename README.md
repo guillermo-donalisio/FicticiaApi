@@ -1,4 +1,4 @@
-# FicticiaApi
+# FicticiaApi - Code First approach
 > Web Api from Ficticia S.A.
 
 ### Project Versions:
