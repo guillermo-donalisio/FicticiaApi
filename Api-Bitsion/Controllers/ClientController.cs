@@ -72,8 +72,20 @@ public class ClientController : Controller
                 // validations                    
                 if(string.IsNullOrEmpty(model.FullName))
                 {
-                    return Ok("Full name required");                    
-                }                   
+                    return StatusCode(StatusCodes.Status400BadRequest, new
+                    {
+                        Status = "Error",
+                        Message = "Full name required"
+                    });                   
+                }  
+                if(model.Age == 0)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, new
+                    {
+                        Status = "Error",
+                        Message = "Insert a valid age"
+                    });                    
+                }                 
 
                 // request                    
                 await _clientBusiness.InsertClientAsync(_mapper.Map<Client>(model));
@@ -110,9 +122,21 @@ public class ClientController : Controller
             {
                 // validations                    
                 if(string.IsNullOrEmpty(model.FullName))
-                {
-                    return Ok("Name required");                    
+                {                    
+                    return StatusCode(StatusCodes.Status400BadRequest, new
+                    {
+                        Status = "Error",
+                        Message = "Full name required"
+                    });                      
                 }
+                if(model.Age == 0)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, new
+                    {
+                        Status = "Error",
+                        Message = "Insert a valid age"
+                    });                    
+                } 
 
                 // request    
                 var client = await _clientBusiness.GetByIdClientdAsync(id);

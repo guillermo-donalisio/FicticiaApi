@@ -49,8 +49,10 @@ public class ClientRepository : GenericRepository<Client>, IClientRepository
         if (entity == null)
             throw new ArgumentNullException(nameof(entity));
         
+        entity.CreatedAt = DateTime.Now;
         entity.UpdatedAt = DateTime.Now;
-
+        entity.IsActive = true;
+        
         await context.Set<Client>().AddAsync(entity);
         return entity;
     }
