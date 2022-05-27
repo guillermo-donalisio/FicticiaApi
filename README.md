@@ -18,7 +18,7 @@
 ### To consume the app:
 - Swashbuckle.AspNetCore (6.2.3)
 
-## Configurations
+### Configurations
 
 - Inside *appsetings.json* place your connection string and JWT secret and ports:
 ````
@@ -41,7 +41,13 @@
   "AllowedHosts": "*"
 }
 ````
-## Test your endpoints using Swagger at local host
+### Create Database with these commands
+
+````
+dotnet ef migrations add <nameMigration> 
+dotnet ef database update
+````
+### Test your endpoints using Swagger at local host
 
 ````
 https://localhost:5001/swagger/index.html
