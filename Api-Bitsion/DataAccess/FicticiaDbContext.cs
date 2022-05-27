@@ -38,7 +38,7 @@ public class FicticiaDbContext : DbContext
 
         modelBuilder.Entity<Client>()
                     .Property(c => c.IsActive)
-                    .HasDefaultValue(false);
+                    .HasDefaultValue(true);
 
         modelBuilder.Entity<Client>()
                     .Property(c => c.CreatedAt)
