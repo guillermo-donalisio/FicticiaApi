@@ -3,11 +3,13 @@ using Api_Bitsion.Core.Models.Clients;
 using Api_Bitsion.DataAccess.UnitOfWork.Interface;
 using Api_Bitsion.Entities;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api_Bitsion.Controllers;
 
 [ApiController]
+[Authorize]
 public class ClientController : Controller
 {
     private readonly IClientBusiness _clientBusiness;
